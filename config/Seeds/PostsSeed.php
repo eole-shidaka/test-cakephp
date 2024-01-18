@@ -35,6 +35,27 @@ class PostsSeed extends AbstractSeed
                 'published' => 1,
                 'created' => '2024-01-17 16:00:00',
                 'modified' => '2024-01-17 16:00:00'
+            ],[
+                'title' => '非表示の投稿タイトル',
+                'description' => '非表示の投稿の概要',
+                'body' => '非表示の投稿の内容',
+                'published' => 0,
+                'created' => '2024-01-17 16:00:00',
+                'modified' => '2024-01-17 16:00:00'
+            ],[
+                'title' => 'テストタイトル',
+                'description' => 'テストタイトルの投稿の概要',
+                'body' => 'テストタイトルの投稿の内容',
+                'published' => 1,
+                'created' => '2024-01-17 16:00:00',
+                'modified' => '2024-01-17 16:00:00'
+            ],[
+                'title' => '5番目の投稿',
+                'description' => '5番目の投稿の概要',
+                'body' => '5番目の投稿の内容',
+                'published' => 0,
+                'created' => '2024-01-17 16:00:00',
+                'modified' => '2024-01-17 16:00:00'
             ],
         ];
 
