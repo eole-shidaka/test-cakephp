@@ -60,13 +60,13 @@ use Cake\Utility\Security;
  * security risks. See https://github.com/josegonzalez/php-dotenv#general-security-information
  * for more information for recommended practices.
 */
-// if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
-//     $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
-//     $dotenv->parse()
-//         ->putenv()
-//         ->toEnv()
-//         ->toServer();
-// }
+if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
+    $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
+    $dotenv->parse()
+        ->putenv()
+        ->toEnv()
+        ->toServer();
+}
 
 /*
  * Read configuration file and inject configuration into various
@@ -146,6 +146,7 @@ if (!$fullBaseUrl) {
      *
      * See also https://book.cakephp.org/4/en/controllers/request-response.html#trusting-proxy-headers
      */
+
     $trustProxy = false;
 
     $s = null;
@@ -159,6 +160,9 @@ if (!$fullBaseUrl) {
     }
     unset($httpHost, $s);
 }
+
+// Plugin::load('Bake'); // この行をコメントアウトまたは削除します。
+
 if ($fullBaseUrl) {
     Router::fullBaseUrl($fullBaseUrl);
 }
@@ -172,10 +176,10 @@ Log::setConfig(Configure::consume('Log'));
 Security::setSalt(Configure::consume('Security.salt'));
 
 /*
- * Setup detectors for mobile and tablet.
- * If you don't use these checks you can safely remove this code
- * and the mobiledetect package from composer.json.
- */
+* Setup detectors for mobile and tablet.
+* If you don't use these checks you can safely remove this code
+* and the mobiledetect package from composer.json.
+*/
 ServerRequest::addDetector('mobile', function ($request) {
     $detector = new \Detection\MobileDetect();
 
@@ -188,11 +192,11 @@ ServerRequest::addDetector('tablet', function ($request) {
 });
 
 /*
- * You can enable default locale format parsing by adding calls
- * to `useLocaleParser()`. This enables the automatic conversion of
- * locale specific date formats. For details see
- * @link https://book.cakephp.org/4/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
- */
+* You can enable default locale format parsing by adding calls
+* to `useLocaleParser()`. This enables the automatic conversion of
+* locale specific date formats. For details see
+* @link https://book.cakephp.org/4/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
+*/
 // \Cake\Database\TypeFactory::build('time')
 //    ->useLocaleParser();
 // \Cake\Database\TypeFactory::build('date')
@@ -214,10 +218,10 @@ ServerRequest::addDetector('tablet', function ($request) {
 TypeFactory::map('time', StringType::class);
 
 /*
- * Custom Inflector rules, can be set to correctly pluralize or singularize
- * table, model, controller names or whatever other string is passed to the
- * inflection functions.
- */
+* Custom Inflector rules, can be set to correctly pluralize or singularize
+* table, model, controller names or whatever other string is passed to the
+* inflection functions.
+*/
 //Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
 //Inflector::rules('irregular', ['red' => 'redlings']);
 //Inflector::rules('uninflected', ['dontinflectme']);
