@@ -23,6 +23,7 @@
 
 use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\RouteBuilder;
+use Cake\Routing\Router;
 
 /*
  * This file is loaded in the context of the `Application` class.
@@ -55,8 +56,12 @@ return function (RouteBuilder $routes): void {
          * its action called 'display', and we pass a param to select the view file
          * to use (in this case, templates/Pages/home.php)...
          */
-        $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+        $builder->connect('/', ['controller' => 'Posts', 'action' => 'index']);
 
+        Router::prefix('admin', function ($routes) {
+            $routes->connect('/', ['controller' => 'Posts', 'action' => 'index']);
+            $routes->fallbacks('DashedRoute');
+        });
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
          */
