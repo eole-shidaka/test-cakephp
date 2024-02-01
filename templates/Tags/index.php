@@ -1,21 +1,21 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Post[] $posts
+ * @var \App\Model\Entity\Tag[] $tags
  */
 ?>
 <div class="content">
-    <?php foreach ($posts as $post): ?>
-        <h3><?= h($post->title) ?></h3>
-        <p><?= $post->created->i18nFormat('YYYY年MM月dd日 HH:mm') ?></p>
-        <?= $this->Text->autoParagraph($post->description) ?>
-        <p><small>投稿者 :<?= h($post->user->username) ?></small></p>
-        <?= $this->Html->link('記事を読む', [
+    <ul>
+    <?php foreach ($tags as $tag): ?>
+        <li>
+        <time><?= $tag->created->i18nFormat('YYYY年MM月dd日 HH:mm') ?></time>
+        <?= $this->Html->link($tag->title, [
             'action' => 'view',
-            $post->id
-        ], ['class' => 'button']) ?>
-        <hr>
+            $tag->id
+        ]) ?>
+        </li>
     <?php endforeach; ?> 
+    </ul>
 
     <?php if($this->Paginator->total() > 1): ?>
         <div class="paginetor">
