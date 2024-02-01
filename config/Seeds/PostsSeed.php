@@ -26,6 +26,7 @@ class PostsSeed extends AbstractSeed
                 'description' => "<script>alert('JavaScriptの実行');</script>\n最初の投稿の概要\改行文章",
                 'body' => '最初の投稿の内容',
                 'published' => 1,
+                'user_id' => 1,
                 'created' => '2024-01-18 16:00:00',
                 'modified' => '2024-01-17 16:00:00'
             ],[
@@ -33,6 +34,7 @@ class PostsSeed extends AbstractSeed
                 'description' => '最初の投稿の概要',
                 'body' => '最初の投稿の内容',
                 'published' => 1,
+                'user_id' => 1,
                 'created' => '2024-01-17 16:00:00',
                 'modified' => '2024-01-17 16:00:00'
             ],[
@@ -40,6 +42,7 @@ class PostsSeed extends AbstractSeed
                 'description' => '非表示の投稿の概要',
                 'body' => '非表示の投稿の内容',
                 'published' => 0,
+                'user_id' => 2,
                 'created' => '2024-01-17 16:00:00',
                 'modified' => '2024-01-17 16:00:00'
             ],[
@@ -47,6 +50,7 @@ class PostsSeed extends AbstractSeed
                 'description' => 'テストタイトルの投稿の概要',
                 'body' => 'テストタイトルの投稿の内容',
                 'published' => 1,
+                'user_id' => 2,
                 'created' => '2024-01-19 16:00:00',
                 'modified' => '2024-01-17 16:00:00'
             ],[
@@ -54,6 +58,7 @@ class PostsSeed extends AbstractSeed
                 'description' => '5番目の投稿の概要',
                 'body' => '5番目の投稿の内容',
                 'published' => 0,
+                'user_id' => 1,
                 'created' => '2024-01-16 16:00:00',
                 'modified' => '2024-01-17 16:00:00'
             ],
